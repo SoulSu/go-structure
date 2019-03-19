@@ -16,4 +16,21 @@ func TestTrie_Add(t *testing.T) {
 	fmt.Println(te.Container("hell"))
 	fmt.Println(te.Container("hello"))
 	fmt.Println(te.Container("hello"))
+	fmt.Printf("%+v", e)
+	checkError(e)
+}
+
+type Error struct {
+}
+
+func (Error) Error() string {
+	return "ooo"
+}
+
+var e Error
+
+func checkError(err error) {
+	if err != nil {
+		panic(err)
+	}
 }
